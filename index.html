@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14251e" />
+  <meta name="description" content="Voxelcraft — an original creative voxel sandbox. Explore a seeded world, build something beautiful, and make it yours." />
+  <title>Voxelcraft — A world of your own</title>
+</head>
+<body>
+  <canvas id="game" aria-label="Voxelcraft first-person game world"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <section id="hud" hidden aria-label="Game interface">
+    <div class="world-tag"><span class="status-dot"></span><strong>VOXELCRAFT</strong><span class="tag-divider">/</span><span>CREATIVE</span></div>
+    <div id="coordinates" class="coordinates"></div>
+    <div id="crosshair" aria-hidden="true"></div>
+    <div id="target" class="target"></div>
+    <div class="toolbar-wrap"><div id="selected-name"></div><div id="hotbar" role="toolbar" aria-label="Building blocks"></div></div>
+    <div class="hud-help"><kbd>W A S D</kbd> move <span>·</span> <kbd>SPACE</kbd> jump <span>·</span> <kbd>LMB</kbd> mine <span>·</span> <kbd>RMB</kbd> build <span>·</span> <kbd>ESC</kbd> pause</div>
+    <div id="debug" hidden></div>
+  </section>
+  <main id="menu" class="overlay">
+    <header class="masthead"><a class="wordmark" href="./" aria-label="Voxelcraft home"><span class="cube-mark" aria-hidden="true">◆</span> VOXELCRAFT</a><span class="edition">SANDBOX / 0.1</span></header>
+    <section class="menu-layout">
+      <div class="intro"><div class="eyebrow"><span class="status-dot"></span> YOUR NEXT ADVENTURE STARTS HERE</div><h1>A world<br>of your <em>own.</em></h1><p>Find a quiet corner. Break new ground.<br>Build something only you could imagine.</p><div class="feature-tags"><span>Seeded landscapes</span><span>Unlimited blocks</span><span>Yours to keep</span></div></div>
+      <section class="panel" aria-labelledby="panel-title">
+        <div class="panel-heading"><span class="eyebrow">LET’S MAKE SOMETHING</span><span class="panel-icon" aria-hidden="true">↗</span></div>
+        <h2 id="panel-title">Step into your world.</h2>
+        <p id="menu-description" class="muted">An open canvas. A fresh perspective.</p>
+        <button id="resume" class="button primary" hidden>Return to world <span aria-hidden="true">→</span></button>
+        <button id="continue" class="button primary" hidden>Continue saved world <span aria-hidden="true">→</span></button>
+        <label for="seed" class="field-label">WORLD SEED <span>A name becomes a landscape</span></label>
+        <input id="seed" maxlength="80" value="wildflower" autocomplete="off" spellcheck="false" />
+        <button id="new-world" class="button primary">Create a new world <span aria-hidden="true">→</span></button>
+        <div class="button-row"><button id="export" class="button secondary" disabled>Export world</button><button id="import" class="button secondary">Import world</button></div>
+        <input id="import-file" type="file" accept=".json,application/json" hidden />
+        <details id="settings"><summary>Settings & controls <span aria-hidden="true">+</span></summary>
+          <label class="setting" for="distance">View distance <select id="distance"><option value="2">Low · 2 chunks</option><option value="3" selected>Balanced · 3 chunks</option><option value="4">High · 4 chunks</option><option value="5">Ultra · 5 chunks</option></select></label>
+          <label class="setting" for="sensitivity">Mouse sensitivity <input id="sensitivity" type="range" min="1" max="5" step="0.25" value="2" /></label>
+          <label class="setting" for="sound">Sound effects <input id="sound" type="checkbox" checked /></label>
+          <div class="controls-grid"><span>Move / sprint</span><span>WASD / Shift</span><span>Jump</span><span>Space</span><span>Mine / place</span><span>Left / right click</span><span>Select / pick block</span><span>1–8 or wheel / middle click</span><span>Save / respawn</span><span>F / R</span><span>Diagnostics / pause</span><span>F3 / Escape</span></div>
+        </details>
+        <p class="storage-note"><span class="status-dot"></span> Autosaves on this device. Export a backup to keep it safe.</p>
+      </section>
+    </section>
+    <footer><span>NO OBJECTIVES. JUST POSSIBILITIES.</span><span>Desktop · keyboard & mouse · WebGL2</span></footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <div id="fatal" role="alert" hidden></div>
+  <noscript><div class="no-script">Voxelcraft needs JavaScript and a WebGL2-capable desktop browser to play.</div></noscript>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
